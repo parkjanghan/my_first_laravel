@@ -19,16 +19,16 @@
           @method('PATCH')
           
           <label for="name">Name</label>
-          <input class="form-control" type="text" name="name" value="{{ $user->name }}">
+          <input class="form-control form-group" type="text" name="name" value="{{ $user->name }}">
 
           <label for="email">Email</label>
-          <input class="form-control" type="text" name="email" value="{{ $user->email }}">
+          <input class="form-control form-group" type="text" name="email" value="{{ $user->email }}">
 
           <label for="password">Password</label>
-          <input class="form-control" type="password" name="password" value="">
+          <input class="form-control form-group" type="password" name="password" value="">
 
           <label for="role_id">Role</label>
-          <select name="role_id" class="form-control">
+          <select name="role_id" class="form-control form-group">
               <option value="#">Choose a Role</option>
               @foreach($roles as $role)
                   <option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : ''}} >{{ $role->name }}</option>
@@ -36,7 +36,7 @@
           </select>
 
           <label for="is_active">Status</label>
-          <select name="is_active" class="form-control">
+          <select name="is_active" class="form-control form-group">
             
               @if($user->is_active === 0)
                   <option value="0" selected>Not Avtice</option>            
@@ -49,11 +49,18 @@
           </select>
 
           <label for="photo_id">File</label>
-          <input type="file" name="photo_id">
-
-          <input class="btn-primary" type="submit" name="" value="update a user">
-
+          <input type="file" class="form-group" name="photo_id">
+                    
+          <input class="btn btn-primary" type="submit" name="" value="update a user">          
+                    
       </form>
+      
+      <form class="form-group" action="{{ route('users.destroy', $user->id) }}" method="post">
+        @CSRF
+        @method('DELETE')
+        <input type="submit" name="delete_user" value="delete_user" class="btn btn-danger">
+      </form>
+      
         
       @include('includes.form_error')
 
