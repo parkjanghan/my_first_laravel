@@ -31,8 +31,8 @@
             <option value="1">Active</option>
         </select>
 
-        <label for="file">File</label>
-        <input type="file" name="file">
+        <label for="photo_id">File</label>
+        <input type="file" name="photo_id">
 
         <input class="btn-primary" type="submit" name="" value="create a user">
 
