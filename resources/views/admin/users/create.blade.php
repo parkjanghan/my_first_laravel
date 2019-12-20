@@ -25,8 +25,8 @@
             @endforeach
         </select>
 
-        <label for="status">Status</label>
-        <select name="status" class="form-control">
+        <label for="is_active">Status</label>
+        <select name="is_active" class="form-control">
             <option value="0" selected>Not Avtice</option>
             <option value="1">Active</option>
         </select>
@@ -37,7 +37,7 @@
         <input class="btn-primary" type="submit" name="" value="create a user">
 
     </form>
-
+      
     @include('includes.form_error')
 
 @endsection

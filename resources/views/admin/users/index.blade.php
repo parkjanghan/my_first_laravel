@@ -11,7 +11,7 @@
                 <th>NAME</th>
                 <th>E-MAIL</th>
                 <th>ROLE</th>
-                <th>Status</th>
+                <th>is_active</th>
                 <th>Created</th>
                 <th>Updated</th>
             </tr>
