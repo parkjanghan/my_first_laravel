@@ -1,4 +1,4 @@
-`<?php
+<?php
 
 namespace App\Providers;
 
@@ -16,12 +16,6 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    public function  myMethod()
-    {
-        //
-    }
-
-
     /**
      * Bootstrap any application services.
      *
@@ -31,4 +25,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
+
 }

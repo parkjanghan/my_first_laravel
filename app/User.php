@@ -11,7 +11,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-
     /**
      * The attributes that are mass assignable.
      *
@@ -56,18 +55,13 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-
         if($this->role->name == "administrator" && $this->is_active == 1) {
-
             return true;
-
         } else {
-
-            return false;
-
+           return false;
         }
-
     }
+
 
 }
 
