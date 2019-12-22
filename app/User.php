@@ -2,13 +2,15 @@
 
 namespace App;
 
+
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
 
     /**
      * The attributes that are mass assignable.
@@ -44,31 +46,28 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Role');
     }
-    
-    
+
+
     public function photo()
     {
         return $this->belongsTo('App\Photo');
     }
-    
-    
+
+
     public function isAdmin()
     {
-      
-        if($this->role->name == "administrator" && $this->is_active == 1) {
-            
-            return true;
-            
-        } else {
-            
-            return false;
-  
-        }
-        
-    }
-    
-    
 
+        if($this->role->name == "administrator" && $this->is_active == 1) {
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
 
 }
 

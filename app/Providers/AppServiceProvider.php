@@ -1,4 +1,4 @@
-<?php
+`<?php
 
 namespace App\Providers;
 
@@ -11,10 +11,16 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function  register()
     {
         //
     }
+
+    public function  myMethod()
+    {
+        //
+    }
+
 
     /**
      * Bootstrap any application services.
