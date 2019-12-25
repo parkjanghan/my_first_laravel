@@ -1,21 +1,21 @@
 @extends('layouts.admin')
 
 @section('content')
-    
+
     @if(Session::has('create_user'))
-    
+
       <p class="bg-success">{{ session('create_user')}}</p>
-      
+
     @elseif(Session::has('update_user'))
-    
+
       <p class="bg-primary">{{ session('update_user')}}</p>
-      
+
     @elseif(Session::has('delete_user'))
-    
+
       <p class="bg-danger">{{ session('delete_user')}}</p>
-      
+
     @endif
-    
+
     <h1>Users</h1>
 
     <table class="table">
@@ -38,7 +38,7 @@
 
                 <tr>
                     <td>{{ $user->id }}</td>
-                    <td> <img height="50" src="{{ $user->photo->file ?? 'http://placehold.it/150x150' }}" alt=""> </td>                    
+                    <td> <img height="50" src="{{ $user->photo->file ?? 'http://placehold.it/150x150' }}" alt=""> </td>
                     <td> <a href="{{ route('users.edit', $user->id) }}"> {{ $user->name }} </a></td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role->name }}</td>
