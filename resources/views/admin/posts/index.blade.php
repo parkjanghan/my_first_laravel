@@ -9,9 +9,9 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>USER_ID</th>
-            <th>CATEGORY_ID</th>
-            <th>PHOTO_ID</th>
+            <th>Owner</th>
+            <th>CATEGORY</th>
+            <th>PHOTO</th>
             <th>TITLE</th>
             <th>BODY</th>
             <th>Created</th>
@@ -24,7 +24,7 @@
             @foreach($posts as $post)
                 <tr>
                     <td>{{ $post->id }}</td>
-                    <td>{{ $post->user_id }}</td>
+                    <td>{{ $post->user->name }}</td>
                     <td>{{ $post->category_id }}</td>
                     <td>{{ $post->photo_id }}</td>
                     <td>{{ $post->title }}</td>

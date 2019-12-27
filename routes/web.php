@@ -32,6 +32,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::resource('admin/users', 'AdminUsersController');
     Route::resource('admin/posts', 'AdminPostsController');
+    //This is from sftp from phpstorm (test).
 });
 
 
