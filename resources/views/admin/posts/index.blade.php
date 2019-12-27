@@ -24,11 +24,11 @@
             @foreach($posts as $post)
                 <tr>
                     <td>{{ $post->id }}</td>
-                    <td><img src="{{ $post->photo->file ?? 'http://placehold.it/150x150' }}" height="50"></td>
+                    <td><img src="{{ $post->photo->file ?? 'http://placehold.it/150x150' }}" height="50" width="100"></td>
                     <td>{{ $post->user->name }}</td>
                     <td>{{ $post->category->name ?? '' }}</td>
-                    <td>{{ $post->title }}</td>
-                    <td>{{ $post->body }}</td>
+                    <td><a href="{{ route('posts.edit', $post->id) }}">{{ $post->title }}</a></td>
+                    <td>{{ Str::limit($post->body, 7) }}</td>
                     <td>{{ $post->created_at->diffForHUmans() }}</td>
                     <td>{{ $post->updated_at->diffForHUmans() }}</td>
                 </tr>
