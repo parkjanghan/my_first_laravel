@@ -15,7 +15,9 @@
         <div class="form-group">
             <label for="category_id">Category:</label>
             <select name="category_id" class="form-control">
-                <option value="#">options</option>
+                <option value="0">options</option>
+                <option value="1">PHP</option>
+                <option value="2">JAVA</option>
             </select>
         </div>
 
@@ -35,5 +37,7 @@
         </div>
 
     </form>
+
+    @include('includes.form_error')
 
 @endsection
