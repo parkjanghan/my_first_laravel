@@ -115,17 +115,17 @@ class AdminPostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
+     *
+     * @throws \Exception
      */
     public function destroy($id)
     {
         $post = Post::query()->findOrFail($id);
 
-
         if($post->photo_id) {
 
-            unlink("." . $post->photo->file);
+            unlink(public_path() . $post->photo->file);
         }
 
         $post->delete();

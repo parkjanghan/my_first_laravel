@@ -5,6 +5,12 @@
 
     <h1>Post Edit Page</h1>
 
+    <div class="col-sm-3">
+        <img src="{{ $post->photo->file ?? 'http://placehold.it/400x400x' }}" alt="" class="img-responsive rounded">
+    </div>
+
+    <div class="col-sm-9">
+
     <form action="{{ route('posts.update', $post->id) }}" method="post" enctype="multipart/form-data" class="form-group">
         @csrf
         @method('PATCH')
@@ -47,5 +53,7 @@
     </form>
 
     @include('includes.form_error')
+
+    </div>
 
 @endsection
