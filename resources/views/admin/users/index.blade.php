@@ -38,7 +38,7 @@
 
                 <tr>
                     <td>{{ $user->id }}</td>
-                    <td> <img height="50" src="{{ $user->photo->file ?? 'http://placehold.it/150x150' }}" alt=""> </td>
+                    <td> <img height="50" src="{{ $user->photo->file ?? 'https://placehold.it/150x150' }}" alt=""> </td>
                     <td> <a href="{{ route('users.edit', $user->id) }}"> {{ $user->name }} </a></td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role->name }}</td>

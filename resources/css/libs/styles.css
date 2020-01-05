@@ -37,3 +37,7 @@
 .toppad
 {margin-top:20px;
 }
+
+#nested-comment {
+    margin-top: 60px;
+}

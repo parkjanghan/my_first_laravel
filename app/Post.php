@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+
     protected $fillable = [
         'title',
         'body',
@@ -29,5 +30,15 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo('App\Category', 'category_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'post_id');
+    }
+
+    public function getAll()
+    {
+        return Post::all();
     }
 }

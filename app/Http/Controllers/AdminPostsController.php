@@ -11,11 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminPostsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return
-     */
+
     public function index()
     {
         $posts = Post::all();
@@ -68,7 +64,7 @@ class AdminPostsController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -124,12 +120,21 @@ class AdminPostsController extends Controller
         $post = Post::query()->findOrFail($id);
 
         if($post->photo_id) {
+            if(file_exists(public_path() . $post->photo->file)) {
+                unlink(public_path() . $post->photo->file);
+            }
 
-            unlink(public_path() . $post->photo->file);
         }
 
         $post->delete();
 
         return redirect('admin/posts');
+    }
+
+    public function post($id)
+    {
+        $post = Post::query()->findOrFail($id);
+
+        return view('post', compact('post'));
     }
 }

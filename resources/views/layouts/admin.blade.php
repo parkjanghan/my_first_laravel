@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
 
     <link rel="stylesheet" href="{{ asset('css/libs.css') }}" type="text/css">
+    @yield('styles')
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,27 +45,43 @@
 
         <ul class="nav navbar-top-links navbar-right">
 
-
             <!-- /.dropdown -->
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="toggleFun()">
                     <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-user">
+                <ul class="dropdown-menu dropdown-user" id="logout_box">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout_form').submit();"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+
+                        <form action="{{ route('logout') }}" method="post" style="display: none" id="logout_form">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->
 
-
         </ul>
+
+        <script>
+            function toggleFun() {
+                let x = document.getElementById('logout_box');
+
+                if(x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
 
 
 
@@ -139,6 +156,10 @@
                                 <a href="{{ route('posts.create') }}">Create Post</a>
                             </li>
 
+                            <li>
+                                <a href="{{ route('comments.index') }}">All Comments</a>
+                            </li>
+
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -159,25 +180,20 @@
                         <!-- /.nav-second-level -->
                     </li>
 
-
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="{{ route('medias.index') }}">All Media</a>
                             </li>
 
                             <li>
-                                <a href="">Upload Media</a>
+                                <a href="{{ route('medias.create') }}">Upload Media</a>
                             </li>
 
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
-
-
-
 
 
 
@@ -341,6 +357,7 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
+@yield('scripts')
 <script src="{{asset('js/libs.js')}}"></script>
 
 

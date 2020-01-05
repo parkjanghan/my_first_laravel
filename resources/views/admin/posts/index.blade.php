@@ -14,6 +14,8 @@
             <th>CATEGORY</th>
             <th>TITLE</th>
             <th>BODY</th>
+            <th>Post link</th>
+            <th>Comments</th>
             <th>Created</th>
             <th>Updated</th>
         </tr>
@@ -29,6 +31,8 @@
                     <td>{{ $post->category->name ?? '' }}</td>
                     <td><a href="{{ route('posts.edit', $post->id) }}">{{ $post->title }}</a></td>
                     <td>{{ Str::limit($post->body, 7) }}</td>
+                    <td><a href="{{ route('home.post', $post->id) }}">View Post</a></td>
+                    <td><a href="{{ route('comments.show', $post->id) }}">View Comments</a></td>
                     <td>{{ $post->created_at->diffForHUmans() }}</td>
                     <td>{{ $post->updated_at->diffForHUmans() }}</td>
                 </tr>
